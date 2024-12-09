@@ -1,5 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <title>Password Protected Page</title>
+  <script>
+    function checkPassword() {
+      if (sessionStorage.getItem("accessGranted")) {
+        // Skip the prompt if access was previously granted
+        return;
+      }
+
+      const correctPassword = "Fortnite"; // Set the password to Fortnite
+      const userPassword = prompt("Enter the password:");
+
+      if (userPassword === correctPassword) {
+        alert("Access Granted!");
+        sessionStorage.setItem("accessGranted", true); // Mark access as granted
+      } else {
+        alert("Access Denied!");
+        window.location.href = "https://www.google.com"; // Redirect to Google on failure
+      }
+    }
+  </script>
+</head>
+<body onload="checkPassword()">
+  <h1>Welcome to the Protected Page</h1>
+  <p>Your content goes here.</p>
+</body>
+</html>
 
 <head>
     <meta charset="UTF-8">
