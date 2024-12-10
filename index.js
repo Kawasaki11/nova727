@@ -1,3 +1,28 @@
+//Below is the code that shuts on and off the website veia netlify SITE_ACTIVE and set to FALSE
+// src/App.js (or your main component file)
+import React from 'react';
+
+function App() {
+  const isSiteActive = process.env.REACT_APP_SITE_ACTIVE === 'true'; // Check the environment variable
+
+  if (!isSiteActive) {
+    return (
+      <div>
+        <h1>We'll be back soon! We're performing maintenance on the site.</h1>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h1>Welcome to our site!</h1>
+      {/* Your normal site content here */}
+    </div>
+  );
+}
+
+export default App;
+//ENd
 function handleError(message, error, showAlert = false) {
     console.error(message, error);
     if (showAlert) {
